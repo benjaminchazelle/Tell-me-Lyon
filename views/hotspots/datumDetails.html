@@ -1,0 +1,31 @@
+<div ng-show="$root.getHighlightedPlace() != null" class="ui raised segment">
+	<h3 class="ui header">{{$root.getHighlightedPlace().nom}}</h3>
+
+	<div ng-show="$root.isWishListFocused()">
+		<button class="ui fluid button" ng-click="$root.wishListFocus(false)">View more</button>
+	</div>
+
+	<div ng-show="!$root.isWishListFocused()">
+		<p style="text-align:center">
+			<img style="width:100%;max-height:200px;" src="{{$root.getHighlightedPlace().photoURL}}" />
+		</p>
+
+		<p><i class="star icon"></i> #{{$root.getHighlightedPlace().rank}}</p>
+		<p><i class="tag icon"></i> {{$root.getHighlightedPlace().category}}</p>
+		<p ng-show="$root.getHighlightedPlace().free"><i class="euro icon"></i>Totally free</p>
+		<p ng-show="!$root.getHighlightedPlace().free"><i class="euro icon"></i>Possible entrance fee</p>
+		<p class="ellipsis" ng-show="$root.getHighlightedPlace().url"><i class="linkify icon"></i> <a href="{{$root.getHighlightedPlace().url}}">{{$root.getHighlightedPlace().domain}}</a></p>
+
+	</div>
+	<button class="ui fluid button" style="margin-top:10px;" ng-click="$root.wishListToggle($root.getHighlightedPlace())">
+		<span ng-show="!$root.isWishListed($root.getHighlightedPlace())">
+			<i class="heart icon"></i> Wish
+		</span>
+
+		<span ng-show="$root.isWishListed($root.getHighlightedPlace())">
+			<i class="trash icon"></i> Unwish
+		</span>
+
+	</button>
+
+</div>

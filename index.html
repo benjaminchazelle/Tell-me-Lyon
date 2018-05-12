@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html ng-app="App">
+
+<head>
+
+	<meta charset="utf-8" />
+
+	<title>Tell me Lyon</title>
+
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
+	<script src="angular/angular.min.js"></script>
+
+
+	<link href="leaflet/leaflet.css" rel="stylesheet" />
+	<script src="leaflet/leaflet.js"></script>
+
+	<script src="d3/d3.js"></script>
+
+	<script src="jquery/jquery.js"></script>
+
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+	<link href="semantic/semantic.css" rel="stylesheet" />
+	<script src="semantic/semantic.js"></script>
+
+	<link href="angular-slider/angular-slider.css" rel="stylesheet" />
+	<script src="angular-slider/angular-slider.js"></script>
+
+	<link href="style.css" rel="stylesheet" />
+
+	<script src="lib.js"></script>
+
+	<script src="controllers/TabController.js"></script>
+	<script src="controllers/MapController.js"></script>
+	<script src="controllers/LayersController.js"></script>
+	<script src="controllers/WishController.js"></script>
+	<script src="controllers/HotspotsController.js"></script>
+	<script src="controllers/HotelsController.js"></script>
+	<script src="controllers/BikesController.js"></script>
+	<script src="controllers/TransportsController.js"></script>
+	<script src="app.js"></script>
+
+</head>
+
+<body ng-controller="AppController" ng-cloak>
+
+	<div id="roll"></div>
+
+	<div id="menu">
+		<div class="wrap">
+			<div ng-repeat="(tabId, tab) in $root.tabs" ng-class="{active : $root.activeTab == tabId}" ng-click="$root.setTab(tabId)">
+				<span class="icon" style="background-image:url(images/black/{{tab.icon}})">
+					<span style="background-image:url(images/red/{{tab.icon}})">
+					</span>
+				</span>
+				<span class="label">{{tab.label}}</span>
+			</div>
+		</div>
+	</div>
+
+	<div id="map"></div>
+	<div class="left panels">
+
+		<div class="panel" ng-show="$root.activeTab == 'hot_spots'" ng-include="'views/hotspots/dataExploration.html'"></div>
+		<div class="panel" ng-show="$root.activeTab == 'hot_spots'" ng-include="'views/hotspots/dataLegend.html'"></div>
+
+		<div class="panel" ng-show="$root.activeTab == 'transports'" ng-include="'views/transports/dataExploration.html'"></div>
+		<div class="panel" ng-show="$root.activeTab == 'transports'" ng-include="'views/transports/dataLegend.html'"></div>
+
+		<div class="panel" ng-show="$root.activeTab == 'hotels'" ng-include="'views/hotels/dataExploration.html'"></div>
+		<div class="panel" ng-show="$root.activeTab == 'hotels'" ng-include="'views/hotels/dataLegend.html'"></div>
+
+		<div class="panel" ng-show="$root.activeTab == 'bikes'" ng-include="'views/bikes/dataExploration.html'"></div>
+		<div class="panel" ng-show="$root.activeTab == 'bikes'" ng-include="'views/bikes/dataLegend.html'"></div>
+
+	</div>
+
+	<div class="right panels">
+
+		<div class="panel" ng-include="'views/wish/list.html'"></div>
+
+		<div class="panel" ng-show="$root.activeTab == 'hot_spots'" ng-include="'views/hotspots/datumDetails.html'"></div>
+
+		<div class="panel" ng-show="$root.activeTab == 'hotels'" ng-include="'views/hotels/datumDetails.html'"></div>
+
+		<div class="panel" ng-show="$root.activeTab == 'transports'" ng-include="'views/transports/datumDetails.html'"></div>
+
+		<div class="panel" ng-show="$root.activeTab == 'bikes'" ng-include="'views/bikes/datumDetails.html'"></div>
+
+
+	</div>
+
+
+
+
+</body>
+
+</html>

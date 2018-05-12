@@ -1,0 +1,37 @@
+<div ng-show="$root.activeTab == 'hot_spots' || $root.activeTab == 'transports' || $root.activeTab == 'hotels'" class="ui raised segment">
+
+	<button ng-show="$root.easterEgged" class="ui purple fluid button" style="margin-bottom:10px;" ng-click="$root.easterEgg()">
+		<i class="gift icon"></i> EASTER EGG !
+	</button>
+
+	<div ng-show="$root.isWishListFocused()">
+		<h3 class="ui header">Wish list</h3>
+
+		<table class="ui very basic table">
+		  <tbody>
+			<tr ng-repeat="wish in $root.getWishList()" ng-click="$root.hotspotsFocus(wish)">
+			  <td><a href="">{{wish.nom}}</a></td>
+			  <td class="three wide">
+				  <button style="margin:3px 0" class="ui icon tiny basic button" ng-click="$root.wishListToggle(wish)">
+					  <i class="trash icon"></i>
+				  </button>
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+
+	</div>
+	<div ng-show="!$root.isWishListFocused()">
+
+		<button ng-show="$root.getWishList().length" class="ui red fluid button" ng-click="$root.wishListFocus(true)">
+			<i class="heart icon"></i>
+			<span >View wish list  ({{$root.getWishList().length}})</span>
+		</button>
+
+		<button ng-show="!$root.getWishList().length" class="ui red fluid button" ng-click="$root.setTab('hot_spots')">
+			<i class="heart icon"></i>
+			<span >Wish list is empty</span>
+		</button>
+
+	</div>
+</div>

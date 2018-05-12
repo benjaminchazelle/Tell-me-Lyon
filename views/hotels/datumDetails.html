@@ -1,0 +1,22 @@
+<div ng-show="$root.getHighlightedHotel() != null" class="ui raised segment">
+	<h3 class="ui header">{{$root.getHighlightedHotel().nom}}</h3>
+
+	<div ng-show="$root.isWishListFocused()">
+		<button class="ui fluid button" ng-click="$root.wishListFocus(false)">View more</button>
+	</div>
+
+	<div ng-show="!$root.isWishListFocused()">
+		<p style="text-align:center">
+			<img style="width:100%;max-height:200px;" src="{{$root.getHighlightedHotel().photoURL}}" />
+		</p>
+
+		<p style="text-align: center;"><span ng-repeat="i in $root.range($root.getHighlightedHotel().star)">&#x2605;</span></p>
+		<p><i class="heart icon"></i> Satisfaction : {{$root.getHighlightedHotel().satisfaction}}/5</p>
+		<p><i class="tag icon"></i> {{$root.getHighlightedHotel().category}}</p>
+		<p ng-show="$root.getHighlightedHotel().address"><i class="home icon"></i>{{$root.getHighlightedHotel().address}}</p>
+		<p ng-show="!$root.getHighlightedHotel().phone"><i class="phone icon"></i>{{$root.getHighlightedHotel().phone}}</p>
+		<p class="ellipsis" ng-show="$root.getHighlightedHotel().url"><i class="linkify icon"></i> <a href="{{$root.getHighlightedHotel().url}}">{{$root.getHighlightedHotel().domain}}</a></p>
+
+	</div>
+
+</div>

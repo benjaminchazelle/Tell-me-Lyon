@@ -1,0 +1,62 @@
+<div class="ui raised segment">
+	<h3 class="ui header">Data exploration</h3>
+
+	<form class="ui form">
+
+		<div class="field">
+			<label>Search</label>
+			<div class="ui fluid icon input">
+				<i class="search icon"></i>
+				<input placeholder="Enter a place name" ng-model="$root.hotspotsSearchQuery" type="text">
+			</div>
+		</div>
+
+		<div ng-show="$root.hotspotsSearching()">
+
+			<p class="result" ng-repeat="result in $root.hotspotsSearch()" ng-click="$root.hotspotsFocus(result)">
+				{{result.nom}}
+			</p>
+
+			<p ng-show="$root.hotspotsSearch().length == 0">No results ='(</p>
+
+			<button class="ui fluid button" ng-click="$root.hotspotsSearchQuery = ''">Reset search</button>
+
+		</div>
+		<div ng-show="!$root.hotspotsSearching()">
+			<div class="field">
+				<label>Popularity range</label>
+				<slider floor="0" ceiling="1000" ng-model-low="$root.hotspotsPopularityMin" ng-model-high="$root.hotspotsPopularityMax"></slider>
+				<div class="ui grid">
+					<div class="eight wide column">Unpopular</div>
+					<div class="eight wide column right aligned">Trendy</div>
+				</div>
+			</div>
+
+			<div class="field">
+				<label>Free places</label>
+
+				<div>
+					<div class="ui checkbox" ng-init="$root.checkbox()">
+						<input tabindex="0" ng-model="$root.hotspotsOnlyFree" class="hidden" type="checkbox" />
+						<label>Show only totally free</label>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="field">
+				<label>Categories</label>
+
+				<div ng-repeat="(categoryLabel, categoryIndex) in $root.hotspotsCategories">
+					<div class="ui checkbox" ng-init="$root.checkbox()">
+						<input tabindex="0" ng-model="$root.hotspotsCategoriesStates[categoryIndex]" class="hidden" type="checkbox" />
+						<label>{{categoryLabel}}</label>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+	</form>
+</div>

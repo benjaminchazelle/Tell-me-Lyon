@@ -1,0 +1,12 @@
+<div ng-show="$root.getHighlightedTransport() != null" class="ui raised segment">
+	<h3 class="ui header">{{$root.getHighlightedTransport().nom}}</h3>
+
+	<div>
+
+		<p ng-show="$root.getHighlightedTransport().lines.length"><i class="train icon"></i>
+
+			Line<span ng-show="$root.getHighlightedTransport().lines > 1">s</span> : {{$root.getHighlightedTransport().readableLines}}</p>
+
+	</div>
+
+</div>

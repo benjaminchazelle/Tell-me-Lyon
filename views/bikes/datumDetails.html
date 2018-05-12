@@ -1,0 +1,27 @@
+<div ng-show="$root.getHighlightedBike() != null" class="ui raised segment">
+	<h3 class="ui header">{{$root.getHighlightedBike().nom}}</h3>
+
+	<div ng-show="$root.isWishListFocused()">
+		<button class="ui fluid button" ng-click="$root.wishListFocus(false)">View more</button>
+	</div>
+
+	<div ng-show="!$root.isWishListFocused()">
+
+		<p ng-show="$root.getHighlightedBike().address"><i class="map icon"></i>{{$root.getHighlightedBike().address}}</p>
+		<p ng-show="$root.getHighlightedBike().capacity"><i class="bicycle icon"></i>Station capacity : {{$root.getHighlightedBike().capacity}} stands</p>
+		<p ng-show="$root.getHighlightedBike().capacity"><i class="bar chart icon"></i><b>Mean at {{$root.bikeTime}}.00:</b></p>
+		<p ng-show="$root.getHighlightedBike().capacity"><i class="void chart icon"></i> {{$root.decimal($root.getHighlightedBike().available_bikes[$root.bikeTime])}} bikes / {{$root.decimal($root.getHighlightedBike().available_bike_stands[$root.bikeTime])}} free stands </p>
+
+
+		<svg id="bikeGraph" width="220" height="100"></svg>
+
+		<p style="text-align:center;">
+				<b>Number of available
+			<span ng-show="$root.bikeMode == 'bikes'">bikes</span>
+			<span ng-show="$root.bikeMode == 'stands'">stands</span>
+			 over hours</b>
+		 </p>
+
+	</div>
+
+</div>

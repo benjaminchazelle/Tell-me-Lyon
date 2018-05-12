@@ -1,0 +1,60 @@
+<div class="ui raised segment">
+	<h3 class="ui header">Data exploration</h3>
+
+	<form class="ui form">
+
+		<div>
+
+			<div class="field">
+				<label>&#x2605; Quality range</label>
+				<slider floor="1" ceiling="5" ng-model-low="$root.hotelsQualityMin" ng-model-high="$root.hotelsQualityMax"></slider>
+				<div class="ui grid">
+					<div class="five column row">
+						<div class="column center aligned" ng-repeat="star in [1,2,3,4,5]">{{star}}</div>
+				</div>
+				</div>
+			</div>
+
+			<div class="field">
+				<label>&#x2764; Customer satisfaction</label>
+				<slider floor="0" ceiling="50" ng-model-low="$root.hotelsSatisfactionMin" ng-model-high="$root.hotelsSatisfactionMax"></slider>
+				<div class="ui grid">
+					<div class="five column row">
+						<div class="five wide column">0</div>
+						<div class="six wide column center aligned"><b>{{$root.hotelsSatisfactionMin/10}} - {{$root.hotelsSatisfactionMax/10}}</b></div>
+						<div class="five wide column right aligned">5</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="field">
+				<label>Radius from your wished places</label>
+				<div ng-show="$root.getWishList().length">
+					<slider floor="0" ceiling="200" ng-model="$root.hotelsRadius"></slider>
+					<div class="ui grid">
+						<div class="five wide column">0 km</div>
+						<div class="six wide column center aligned"><b>{{hotelsRadius/10}} km</b></div>
+						<div class="five wide column right aligned">20 km</div>
+					</div>
+				</div>
+				<div ng-show="!$root.getWishList().length">
+					<button class="ui fluid red tiny button" ng-click="$root.setTab('hot_spots')">Select some wish places</buton>
+				</div>
+			</div>
+
+			<div class="field">
+				<label>Category</label>
+
+				<div ng-repeat="(categoryLabel, categoryIndex) in $root.hotelsCategories">
+					<div class="ui checkbox" ng-init="$root.checkbox()">
+						<input tabindex="0" ng-model="$root.hotelsCategoriesStates[categoryIndex]" class="hidden" type="checkbox" />
+						<label>{{categoryLabel}}</label>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+	</form>
+</div>

@@ -1,0 +1,35 @@
+
+		<div class="ui raised segment">
+			<h3 class="ui header">Legend and option</h3>
+
+			<form class="ui form">
+				<div class="field">
+					<label>
+						<span ng-show="$root.bikeMode == 'bikes'">Bikes</span>
+						<span ng-show="$root.bikeMode == 'stands'">Stands</span>
+						 availability
+					 </label>
+					<div style="background: linear-gradient(to right, #db2828 0%,#fbbd08 33%,#21ba45 100%);height:20px;width:100%;"></div>
+					<div class="ui grid">
+						<div class="two column row" style="padding-bottom: 0">
+							<div class="column">
+								0%
+							</div>
+							<div class="right aligned column">
+								100%
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="field" style="margin-top:10px;">
+					<label>Marker size</label>
+					<slider floor="50" ceiling="150" ng-model="$root.bikeMarkerScale"></slider>
+					<div class="ui grid">
+						<div class="five wide column">0.5</div>
+						<div class="six wide column center aligned"><b>{{$root.bikeMarkerScale/100}}</b></div>
+						<div class="five wide column right aligned">1.5</div>
+					</div>
+				</div>
+			</div>
+		</div>

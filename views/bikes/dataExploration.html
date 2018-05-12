@@ -1,0 +1,50 @@
+<div class="ui raised segment">
+	<h3 class="ui header">Data exploration</h3>
+
+	<form class="ui form">
+
+		<div>
+
+			<div class="field">
+				<label>Focus on</label>
+					<div class="ui radio checkbox" ng-init="$root.checkbox()">
+						<input name="bikeMode" value="bikes" tabindex="0" ng-model="$root.bikeMode" class="hidden" type="radio" />
+						<label>Available bikes</label>
+					</div>
+					<div class="ui radio checkbox" ng-init="$root.checkbox()">
+						<input name="bikeMode" value="stands" tabindex="0" ng-model="$root.bikeMode" class="hidden" type="radio" />
+						<label>Available stands</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="field">
+				<label>Station capacity</label>
+
+				<slider floor="{{$root.BIKE_CAPACITY_MIN}}" ceiling="{{$root.BIKE_CAPACITY_MAX}}" ng-model-low="$root.bikeCapacityMin" ng-model-low="$root.bikeCapacityMin" ng-model-high="$root.bikeCapacityMax"></slider>
+				<div class="ui grid">
+					<div class="five wide column">{{$root.BIKE_CAPACITY_MIN}}</div>
+					<div class="six wide column center aligned"><b>{{$root.bikeCapacityMin}} - {{$root.bikeCapacityMax}}</b></div>
+					<div class="five wide column right aligned">{{$root.BIKE_CAPACITY_MAX}}</div>
+				</div>
+			</div>
+
+			<div class="field">
+				<label>Period</label>
+				<slider floor="0" ceiling="23" ng-model="$root.bikeTime"></slider>
+				<div class="ui grid">
+					<div class="five wide column">00.00</div>
+					<div class="six wide column center aligned"><b>{{$root.bikeTime}}.00</b></div>
+					<div class="five wide column right aligned">23.00</div>
+				</div>
+			</div>
+
+			<button class="ui red fluid button" ng-click="$root.toggleBikeAnimation()">
+				<span ng-show="!$root.bikeAnimated">Play animation</span>
+				<span ng-show="$root.bikeAnimated">Stop animation</span>
+			</button>
+
+		</div>
+
+	</form>
+</div>

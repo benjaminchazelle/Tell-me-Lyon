@@ -1,0 +1,37 @@
+<div class="ui raised segment">
+	<h3 class="ui header">Data exploration</h3>
+
+	<form class="ui form">
+
+		<div>
+
+			<div class="field">
+				<label>Radius from your wished places</label>
+				<div ng-show="$root.getWishList().length">
+					<slider floor="0" ceiling="150" ng-model="$root.transportsRadius"></slider>
+					<div class="ui grid">
+						<div class="five wide column">0 km</div>
+						<div class="six wide column center aligned"><b>{{transportsRadius/10}} km</b></div>
+						<div class="five wide column right aligned">15 km</div>
+					</div>
+				</div>
+				<div ng-show="!$root.getWishList().length">
+					<button class="ui fluid red tiny button" ng-click="$root.setTab('hot_spots')">Select some wished places</buton>
+				</div>
+			</div>
+
+			<div class="field">
+				<label>Lines</label>
+				<div ng-repeat="(lineLabel, lineIndex) in $root.transportsLines">
+					<div class="ui checkbox" ng-init="$root.checkbox()">
+						<input tabindex="0" ng-model="$root.transportsLinesStates[lineIndex]" class="hidden" type="checkbox" />
+						<label>{{lineLabel}}</label>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+	</form>
+</div>

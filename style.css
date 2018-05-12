@@ -1,0 +1,145 @@
+body {
+	font-family : "Lato", sans-serif;
+}
+
+
+#menu {
+	position: fixed;
+	top:0;
+	height:100px;
+	left:0;
+	right:0;
+	background: #fff url(images/logo.png) top center no-repeat;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	z-index : 2000;
+	-webkit-box-sizing: initial;
+}
+
+#menu .wrap {
+display: flex;
+width: 820px;
+margin: 0 auto;
+}
+
+#menu .wrap div {
+    flex: 1;
+    position: relative;
+    top: 50px;
+	height: 46px;
+	border-bottom: 4px solid;
+	border-color : #ffffff;
+	cursor : pointer;
+	padding: 0 4px;
+	transition: color 0.3s, border-color 0.3s, opacity 0.3s;
+	text-align: center;
+
+}
+
+.label {
+    display: block;
+}
+
+#menu .wrap div.active {
+	color : #d51317;
+	border-color : #d51317;
+}
+
+#menu .wrap div:hover {
+	opacity : 0.5;
+	border-color : #777777;
+}
+
+#menu .wrap div.active:hover {
+	opacity : 1;
+	border-color : #d51317;
+}
+
+#menu .icon {
+	height: 23px;
+	width: 23px;
+	display: inline-block;
+	background-color: #fff;
+	margin: 0 3px;
+	background-size: contain;
+}
+
+#menu .icon span {
+	display: block;
+	height: inherit;
+	width: inherit;
+	background-color: #fff;
+	background-size: contain;
+	opacity: 0;
+	transition: opacity 0.3s;
+
+}
+
+#menu .active .icon span {
+	opacity: 1;
+}
+
+
+#map {
+	position: fixed;
+	top:100px;
+	bottom:0;
+	left:0;
+	right:0;
+}
+.panels {
+	position: fixed;
+	top:110px;
+	z-index : 1000;
+	width: 240px;
+}
+
+.left.panels {
+	left:0;
+	z-index: 10000;
+}
+
+.right.panels {
+	right:0;
+	z-index: 10000;
+}
+
+.ui.raised.segment {
+    -webkit-box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.panel {
+	margin: 0 10px 10px;
+}
+
+.ui.segment {
+	border-top: 5px solid #d51317;
+	border-radius: 0;
+}
+
+.result {
+	font-weight: bold;
+	cursor : pointer;
+	transition: background-color 0.5s;
+	background-color: white;
+	margin: 0.1em 0;
+	padding :  0.5em;
+}
+
+.result:hover {
+	background-color: #f2f2f2;
+}
+
+.leaflet-marker-icon, .leaflet-marker-shadow, .leaflet-image-layer, .leaflet-pane > svg path, .leaflet-tile-container {
+	pointer-events: visible;
+}
+
+.ellipsis {
+	white-space: nowrap;
+text-overflow: ellipsis;
+overflow: hidden;
+}
+
+path.box {
+    transition: fill 0.5s;
+}
