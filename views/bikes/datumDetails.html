@@ -1,11 +1,9 @@
 <div ng-show="$root.getHighlightedBike() != null" class="ui raised segment">
 	<h3 class="ui header">{{$root.getHighlightedBike().nom}}</h3>
 
-	<div ng-show="$root.isWishListFocused()">
-		<button class="ui fluid button" ng-click="$root.wishListFocus(false)">View more</button>
-	</div>
 
-	<div ng-show="!$root.isWishListFocused()">
+
+	<div>
 
 		<p ng-show="$root.getHighlightedBike().address"><i class="map icon"></i>{{$root.getHighlightedBike().address}}</p>
 		<p ng-show="$root.getHighlightedBike().capacity"><i class="bicycle icon"></i>Station capacity : {{$root.getHighlightedBike().capacity}} stands</p>
@@ -23,5 +21,10 @@
 		 </p>
 
 	</div>
+
+
+	<button ng-show="$root.easterEgged" class="ui purple fluid button" style="margin-top:10px;" ng-click="$root.easterEgg()">
+		<i class="gift icon"></i> EASTER EGG !
+	</button>
 
 </div>
