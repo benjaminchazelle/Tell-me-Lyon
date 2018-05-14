@@ -19,6 +19,17 @@
 			</div>
 
 			<div class="field">
+				<label>Variant </label>
+
+				<div>
+					<div class="ui checkbox" ng-init="$root.checkbox()">
+						<input tabindex="0" ng-model="$root.bikeVariantOnly" class="hidden" type="checkbox" />
+						<label>Show only variant station</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="field">
 				<label>Station capacity</label>
 
 				<slider floor="{{$root.BIKE_CAPACITY_MIN}}" ceiling="{{$root.BIKE_CAPACITY_MAX}}" ng-model-low="$root.bikeCapacityMin" ng-model-low="$root.bikeCapacityMin" ng-model-high="$root.bikeCapacityMax"></slider>

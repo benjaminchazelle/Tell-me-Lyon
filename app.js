@@ -18,7 +18,6 @@ angular.module('App', ['uiSlider']).controller('AppController', function($rootSc
 
 	LayersController(controller, $rootScope, $scope, $timeout, $http);
 
-
 	// Utilities
 
 	$rootScope.checkbox = function () {

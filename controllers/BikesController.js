@@ -274,6 +274,10 @@ controller.layers.bikesLayer = new function () {
 
 			display = $rootScope.bikeCapacityMin <= d.capacity && d.capacity <= $rootScope.bikeCapacityMax;
 
+			if($rootScope.bikeVariantOnly) {
+				display = display && d.variant;
+			}
+
 			return display ? "" : "none";
 		})
 	};
@@ -314,10 +318,25 @@ d3.json("data/hourly_data.json", function(hourlyData) {
 				capacity = Math.max(capacity, Math.ceil(record.available_bikes + record.available_bike_stands));
 			}
 
+			var min = null;
+			var max = null;
+
 			for(var t in available_bikes) {
 				available_bikes[t] = available_bikes[t].reduce(function(a, b) { return a + b; }, 0) / available_bikes[t].length;
 				available_bike_stands[t] = available_bike_stands[t].reduce(function(a, b) { return a + b; }, 0) / available_bike_stands[t].length;
+
+				if(min == null || available_bikes[t] < min) {
+					min = available_bikes[t];
+				}
+
+				if(max == null || available_bikes[t] > max) {
+					max = available_bikes[t];
+				}
 			}
+
+			var range = max - min;
+
+			var variant = (range / capacity) > 0.75;
 
 			$rootScope.BIKE_CAPACITY_MIN = Math.min($rootScope.BIKE_CAPACITY_MIN, capacity);
 			$rootScope.BIKE_CAPACITY_MAX = Math.max($rootScope.BIKE_CAPACITY_MAX, capacity);
@@ -329,6 +348,7 @@ d3.json("data/hourly_data.json", function(hourlyData) {
 				available_bikes : available_bikes,
 				available_bike_stands : available_bike_stands,
 				capacity : capacity,
+				variant : variant,
 				latlng : new L.LatLng( stationDatum["position"].lat,  stationDatum["position"].lng)
 			});
 		}
@@ -364,6 +384,10 @@ $rootScope.$watchCollection("bikesCategoriesStates", controller.layers.bikesLaye
 $rootScope.bikeTime = 12;
 
 $rootScope.$watch("bikeTime", controller.layers.bikesLayer.update);
+
+$rootScope.bikeVariantOnly = false;
+
+$rootScope.$watch("bikeVariantOnly", controller.layers.bikesLayer.update);
 
 $rootScope.bikeMode = "bikes";
 
@@ -407,4 +431,18 @@ $rootScope.bikesFocus = function (bike) {
 		}, 500);
 	}
 };
+
+$rootScope.bikeStoryHomes = function () {
+	$rootScope.bikeVariantOnly = true;
+	$rootScope.bikeMode = 'bikes';
+	$rootScope.bikeTime = 5;
+};
+
+$rootScope.bikeStoryOffices = function () {
+	$rootScope.bikeVariantOnly = true;
+	$rootScope.bikeMode = 'bikes';
+	$rootScope.bikeTime = 21;
+};
+
+
 }

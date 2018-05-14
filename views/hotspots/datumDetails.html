@@ -14,7 +14,7 @@
 		<p><i class="tag icon"></i> {{$root.getHighlightedPlace().category}}</p>
 		<p ng-show="$root.getHighlightedPlace().free"><i class="euro icon"></i>Totally free</p>
 		<p ng-show="!$root.getHighlightedPlace().free"><i class="euro icon"></i>Possible entrance fee</p>
-		<p class="ellipsis" ng-show="$root.getHighlightedPlace().url"><i class="linkify icon"></i> <a href="{{$root.getHighlightedPlace().url}}">{{$root.getHighlightedPlace().domain}}</a></p>
+		<p class="ellipsis" ng-show="$root.getHighlightedPlace().url"><i class="linkify icon"></i> <a target="_blank" href="{{$root.getHighlightedPlace().url}}">{{$root.getHighlightedPlace().domain}}</a></p>
 
 	</div>
 	<button class="ui fluid button" style="margin-top:10px;" ng-click="$root.wishListToggle($root.getHighlightedPlace())">

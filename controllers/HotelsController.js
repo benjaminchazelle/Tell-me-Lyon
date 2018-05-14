@@ -278,4 +278,28 @@ $rootScope.hotelsFocus = function (hotel) {
 		}, 500);
 	}
 };
+
+$rootScope.hotelsStoryGood = function () {
+
+		$rootScope.hotelsQualityMin = 1;
+		$rootScope.hotelsQualityMax = 2;
+
+		$rootScope.hotelsSatisfactionMin = 40;
+		$rootScope.hotelsSatisfactionMax = 50;
+
+};
+
+
+
+$rootScope.hotelsStoryBad = function () {
+
+	$rootScope.hotelsQualityMin = 4;
+	$rootScope.hotelsQualityMax = 5;
+
+	$rootScope.hotelsSatisfactionMin = 0;
+	$rootScope.hotelsSatisfactionMax = 10;
+};
+
+
+
 }

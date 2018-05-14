@@ -241,4 +241,23 @@ $rootScope.transportsFocus = function (transport) {
 		}, 500);
 	}
 };
+
+$rootScope.transportStoryMetro = function () {
+	for(var l in $rootScope.transportsLinesStates) {
+		$rootScope.transportsLinesStates[l] = true;
+	}
+
+	$rootScope.transportsLinesStates[$rootScope.transportsLines["F1"]] = false;
+	$rootScope.transportsLinesStates[$rootScope.transportsLines["F2"]] = false;
+};
+
+$rootScope.transportStoryFunicular = function () {
+	for(var l in $rootScope.transportsLinesStates) {
+		$rootScope.transportsLinesStates[l] = false;
+	}
+
+	$rootScope.transportsLinesStates[$rootScope.transportsLines["F1"]] = true;
+	$rootScope.transportsLinesStates[$rootScope.transportsLines["F2"]] = true;
+};
+
 }

@@ -47,6 +47,103 @@
 
 	<div id="roll"></div>
 
+	<div class="ui basic modal">
+		<div class="ui icon header">
+			<i class="info circle icon"></i>
+
+			{{$root.tabs[$root.activeTab].label}}
+
+		</div>
+
+			<div class="content" ng-show="$root.activeTab == 'hot_spots'">
+				<p>With 6 million tourists per year, Lyon is the second tourist city in France, behind Paris.</p>
+
+				<p>Lyon has an important religious heritage, it is the seat of one of the oldest Catholic dioceses in France, which has a rich and numerous heritage: cathedral, basilica, churches, chapels, monasteries, convents, religious congregations, monumental crosses, statues.... Its most remarkable buildings are mostly within the historic site.</p>
+
+				<p>In spite of a strong urban concentration, the city of Lyon is decorated with numerous green spaces and natural developments. A "flowered city" with three flowers in the competition of flowery towns and villages, Lyon has many parks and urban gardens appreciated by Lyonnais, and a hinterland rich in contrasts, between the Monts du Lyonnais to the south, the Val de Saône, the Monts d'Or and the Dombes plateau to the north.</p>
+			</div>
+			<div class="actions"  ng-show="$root.activeTab == 'hot_spots'">
+				<div class="ui basic cancel inverted button">
+					<i class="remove icon"></i>
+					Close
+				</div>
+				<div ng-click="$root.hotspotsStoryChurches()" class="ui red ok inverted button">
+					<i class="eye icon"></i>
+					View churches
+				</div>
+				<div ng-click="$root.hotspotsStoryParks()" class="ui red ok inverted button">
+					<i class="eye icon"></i>
+					View parks
+				</div>
+			</div>
+
+
+			<div class="content" ng-show="$root.activeTab == 'bikes'">
+				<p>Vélo'v is a self-service bicycle system set up in the Lyon metropolis and managed by JCDecaux since May 2005.</p>
+
+				<p>In this visualization we can have an idea of the residential places of Lyon and the offices where the Lyonnais work. Just look at the condition of the stations (available bikes/stands) on the slots where people are supposed to be at work or at home. However, these data are a weekly average, including weekends, so they should be taken with caution. Editor's note: Nevertheless, as a Lyonnais, I can assure you that this illustrates reality.</p>
+			</div>
+			<div class="actions" ng-show="$root.activeTab == 'bikes'">
+				<div class="ui basic cancel inverted button">
+					<i class="remove icon"></i>
+					Close
+				</div>
+				<div ng-click="$root.bikeStoryHomes()" class="ui red ok inverted button">
+					<i class="eye icon"></i>
+					View homes
+				</div>
+				<div ng-click="$root.bikeStoryOffices()" class="ui red ok inverted button">
+					<i class="eye icon"></i>
+					View offices
+				</div>
+			</div>
+
+
+			<div class="content"  ng-show="$root.activeTab == 'hotels'">
+				<p>60% of Lyon's tourism turnover comes from business tourism and 40% from leisure tourism. 54% of tourists are foreigners. In January 2009, Lyon took first place in the French hotel market.</p>
+
+				<p>This visualization makes it possible to quantify a phenomenon expected in Lyon, and more generally in all the cities of the world: there are many modest places that satisfy customers, and on the other hand, few easy places that do not satisfy them.</p>
+
+			</div>
+			<div class="actions"  ng-show="$root.activeTab == 'hotels'">
+				<div class="ui basic cancel inverted button">
+					<i class="remove icon"></i>
+					Close
+				</div>
+				<div ng-click="$root.hotelsStoryGood()" class="ui red ok inverted button">
+					<i class="eye icon"></i>
+					View good plans
+				</div>
+				<div ng-click="$root.hotelsStoryBad()" class="ui red ok inverted button">
+					<i class="eye icon"></i>
+					View bad plans
+				</div>
+			</div>
+
+			<div class="content"  ng-show="$root.activeTab == 'transports'">
+				<p>The Lyon metro is one of the public transport systems serving the city of Lyon and its agglomeration. It consists of four lines named A, B, C and D to which are added two funicular lines named F1 and F2.</p>
+
+				<p>The first line opened on 9 December 1974 after the conversion of a funicular line into a rack railway, between the Croix-Paquet and Croix-Rousse stations. But the network was officially inaugurated on 28 April 1978 with the opening of two tyre lines. A fourth line with automatic control opened on 9 September 1991. Today, the network comprises forty stations for 32.05 km of dedicated lanes. Visitor numbers equal 196.93 million trips in 2014.</p>
+
+				<p>The funicular of Lyon represents all the railways with funicular traction having existed on the territory of the city of Lyon: because of its tormented topography, the city formerly had up to five funiculars, connecting the low districts with those of the hills of Fourvière and Croix-Rousse. Two funiculars remain today open for operation: the F1 (Saint-Jean - Saint-Just) and F2 (Saint-Jean - Fourvière) lines, incorporated into the Lyon metro.</p>
+			</div>
+			<div class="actions"  ng-show="$root.activeTab == 'transports'">
+				<div class="ui basic cancel inverted button">
+					<i class="remove icon"></i>
+					Close
+				</div>
+				<div ng-click="$root.transportStoryMetro()" class="ui red ok inverted button">
+					<i class="eye icon"></i>
+					View metros
+				</div>
+				<div ng-click="$root.transportStoryFunicular()" class="ui red ok inverted button">
+					<i class="eye icon"></i>
+					View funiculars
+				</div>
+			</div>
+
+	</div>
+
 	<div id="menu">
 		<div class="wrap">
 			<div ng-repeat="(tabId, tab) in $root.tabs" ng-class="{active : $root.activeTab == tabId}" ng-click="$root.setTab(tabId)">
@@ -55,6 +152,13 @@
 					</span>
 				</span>
 				<span class="label">{{tab.label}}</span>
+			</div>
+			<div ng-click="$root.about()">
+				<span class="icon" style="background-image:url(images/black/about.png)">
+					<span>
+					</span>
+				</span>
+				<span class="label">About the project</span>
 			</div>
 		</div>
 	</div>
@@ -92,7 +196,9 @@
 	</div>
 
 
-
+	<div id="tellme">
+		<button onclick="$('.ui.basic.modal').modal('show');" class="ui red fluid button">Tell me Lyon !</button>
+	</div>
 
 </body>
 

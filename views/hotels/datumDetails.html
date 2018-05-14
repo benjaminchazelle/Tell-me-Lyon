@@ -15,7 +15,7 @@
 		<p><i class="tag icon"></i> {{$root.getHighlightedHotel().category}}</p>
 		<p ng-show="$root.getHighlightedHotel().address"><i class="home icon"></i>{{$root.getHighlightedHotel().address}}</p>
 		<p ng-show="!$root.getHighlightedHotel().phone"><i class="phone icon"></i>{{$root.getHighlightedHotel().phone}}</p>
-		<p class="ellipsis" ng-show="$root.getHighlightedHotel().url"><i class="linkify icon"></i> <a href="{{$root.getHighlightedHotel().url}}">{{$root.getHighlightedHotel().domain}}</a></p>
+		<p class="ellipsis" ng-show="$root.getHighlightedHotel().url"><i class="linkify icon"></i> <a target="_blank" href="{{$root.getHighlightedHotel().url}}">{{$root.getHighlightedHotel().domain}}</a></p>
 
 	</div>
 

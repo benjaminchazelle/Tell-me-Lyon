@@ -95,12 +95,12 @@ margin: 0 auto;
 
 .left.panels {
 	left:0;
-	z-index: 10000;
+	z-index: 1000;
 }
 
 .right.panels {
 	right:0;
-	z-index: 10000;
+	z-index: 1000;
 }
 
 .ui.raised.segment {
@@ -142,4 +142,22 @@ overflow: hidden;
 
 path.box {
     transition: fill 0.5s;
+}
+
+#tellme {
+position:fixed;bottom: 0;
+padding-bottom:10px;
+text-align:center;
+width:160px;
+left:50%;
+margin-left:-80px;
+z-index:1000;
+}
+
+#tellme button {
+	box-shadow: 0 10px 20px rgba(0,0,0,0.4), 0 6px 6px rgba(0,0,0,0.3);
+}
+
+.modal p {
+	text-align:justify;
 }

@@ -247,6 +247,20 @@ function HotspotsController(controller, $rootScope, $scope, $timeout, $http) {
 		}
 	};
 
+	$rootScope.hotspotsStoryChurches = function () {
+		for(var i in $rootScope.hotspotsCategoriesStates) {
+			$rootScope.hotspotsCategoriesStates[i] = false;
+		}
+		$rootScope.hotspotsCategoriesStates[$rootScope.hotspotsCategories["Church"]] = true;
+	};
+
+	$rootScope.hotspotsStoryParks = function () {
+		for(var i in $rootScope.hotspotsCategoriesStates) {
+			$rootScope.hotspotsCategoriesStates[i] = false;
+		}
+		$rootScope.hotspotsCategoriesStates[$rootScope.hotspotsCategories["Park"]] = true;
+	};
+
 
 	// Easter egg
 	$rootScope.easterEgg = function () {

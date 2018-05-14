@@ -1,5 +1,9 @@
 function TabController(controller, $rootScope, $scope, $timeout, $http) {
 
+	$rootScope.about = function () {
+			window.location.href = "about.html"
+	};
+
 	$rootScope.tabs = {
 		'hot_spots' : {label : 'Hot spots', icon : '005-location-mark.png'},
 		'bikes' : {label : 'Shared-bikes', icon : '004-bike.png'},
